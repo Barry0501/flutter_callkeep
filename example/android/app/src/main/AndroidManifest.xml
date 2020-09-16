@@ -42,5 +42,16 @@
                 <action android:name="android.telecom.ConnectionService" />
             </intent-filter>
         </service>
+
+        <!-- Incoming call  -->
+        <service android:name="io.wazo.callkeep.HeadsUpNotificationService"/>
+        <receiver
+            android:name="io.wazo.callkeep.HeadsUpNotificationActionReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="999">
+                <action android:name="ConstantApp.CALL_RECEIVE_ACTION" />
+                <action android:name="ConstantApp.CALL_CANCEL_ACTION"/>
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>
